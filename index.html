@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aarohi Pushkar - student developer skilled in C/C++, Python, HTML and CSS. Portfolio with projects, search and an AI chatbot.">
+  <title>Aarohi Pushkar | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="logo" href="#home">&lt;AP /&gt;</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#chatbot">AI Chatbot</a></li>
+      </ul>
+      <button class="theme-btn" id="themeToggle" aria-label="Switch to Light Mode">Switch to Light Mode</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section class="hero" id="home">
+      <div class="hero-text reveal">
+        <p class="eyebrow">Hello, I'm</p>
+        <h1>Aarohi <span class="gradient-text">Pushkar</span></h1>
+        <p class="typing-line"><span id="typedText"></span><span class="caret">|</span></p>
+        <p class="hero-sub">I build clean, working programs in C/C++ and Python, and I'm growing into web development with HTML, CSS and JavaScript.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View My Projects</a>
+          <a class="btn btn-ghost" id="githubHero" href="https://github.com/AarohiPushkar" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+          <a class="btn btn-ghost" href="#chatbot">Ask My AI</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="avatar-ring">
+          <img id="profilePhoto" class="avatar-img" src="assets/profile.jpg" alt="Portrait of Aarohi Pushkar" width="260" height="260">
+          <div class="avatar-fallback" id="avatarFallback">AP</div>
+        </div>
+        <div class="orbit orbit-1"><span>C++</span></div>
+        <div class="orbit orbit-2"><span>Python</span></div>
+        <div class="orbit orbit-3"><span>HTML</span></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <h2 class="section-title reveal">About <span class="gradient-text">Me</span></h2>
+      <div class="about-grid">
+        <div class="glass reveal">
+          <h3>Introduction</h3>
+          <p>I'm Aarohi Pushkar, a technical student at JECRC University. I enjoy turning problems into small, working programs, from Python utilities and quizzes to a reading list web app.</p>
+          <p>I use AI tools such as Cursor to speed up development and to debug, but I make sure I understand every line I submit.</p>
+        </div>
+        <div class="glass reveal">
+          <h3>Education</h3>
+          <ul class="timeline">
+            <li><strong>JECRC University</strong><span>B.Tech / technical program (coursework in mathematics, C++ programming and project work)</span></li>
+          </ul>
+          <div class="stats">
+            <div><b data-count="5">0</b><small>Projects</small></div>
+            <div><b data-count="4">0</b><small>Core skills</small></div>
+            <div><b data-count="100">0</b><small>% curiosity</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <h2 class="section-title reveal">My <span class="gradient-text">Skills</span></h2>
+      <ul class="skills-list">
+        <li class="skill reveal" data-level="80"><div class="skill-head"><span>C / C++</span><em>80%</em></div><div class="bar"><i></i></div></li>
+        <li class="skill reveal" data-level="85"><div class="skill-head"><span>Python</span><em>85%</em></div><div class="bar"><i></i></div></li>
+        <li class="skill reveal" data-level="75"><div class="skill-head"><span>HTML</span><em>75%</em></div><div class="bar"><i></i></div></li>
+        <li class="skill reveal" data-level="70"><div class="skill-head"><span>CSS</span><em>70%</em></div><div class="bar"><i></i></div></li>
+      </ul>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <h2 class="section-title reveal">My <span class="gradient-text">Projects</span></h2>
+
+      <div class="search-panel reveal">
+        <label class="sr-only" for="projectSearch">Search projects by name or technology</label>
+        <input type="search" id="projectSearch" placeholder="Search by name or technology: Python, Quiz, Book..." autocomplete="off">
+        <div class="chips" id="filterChips" role="group" aria-label="Filter by technology"></div>
+        <p class="result-count" id="resultCount" aria-live="polite"></p>
+      </div>
+
+      <div class="cards" id="projectGrid"></div>
+      <p class="no-results" id="noResults" hidden>No projects match your search. Try "Python", "Quiz" or "Book".</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <h2 class="section-title reveal">Contact <span class="gradient-text">Information</span></h2>
+      <div class="contact-grid">
+        <a class="contact-card glass reveal" id="contactGithub" href="https://github.com/AarohiPushkar" target="_blank" rel="noopener noreferrer">
+          <span class="contact-icon">GH</span>
+          <strong>GitHub</strong>
+          <small>github.com/AarohiPushkar</small>
+        </a>
+        <a class="contact-card glass reveal" id="contactEmail" href="#contact" hidden>
+          <span class="contact-icon">@</span>
+          <strong>Email</strong>
+          <small id="contactEmailText"></small>
+        </a>
+        <div class="contact-card glass reveal">
+          <span class="contact-icon">JU</span>
+          <strong>University</strong>
+          <small>JECRC University</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHATBOT -->
+    <section class="section" id="chatbot">
+      <h2 class="section-title reveal">AI <span class="gradient-text">Chatbot</span></h2>
+      <p class="section-sub reveal">Ask about my skills, projects or GitHub. Answers come from my portfolio information.</p>
+      <div class="chat glass reveal">
+        <div class="chat-log" id="chatLog" role="log" aria-live="polite">
+          <div class="msg bot">Hi! I'm Aarohi's portfolio assistant. Ask me anything about her skills or projects.</div>
+        </div>
+        <div class="suggestions" id="suggestions">
+          <button type="button">Who are you?</button>
+          <button type="button">What are your skills?</button>
+          <button type="button">What projects have you completed?</button>
+          <button type="button">How does the reading list work?</button>
+        </div>
+        <form class="chat-form" id="chatForm" autocomplete="off">
+          <label class="sr-only" for="chatInput">Type your question</label>
+          <input type="text" id="chatInput" placeholder="Type your question..." maxlength="400" required>
+          <button class="btn btn-primary" type="submit" id="chatSend">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Aarohi Pushkar. Built with HTML, CSS and JavaScript.</p>
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
